@@ -1,0 +1,30 @@
+{
+  "name": "playing-w-forms-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/playing-w-forms-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/playing-w-forms-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "playing-w-forms:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "playing-w-forms:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "playing-w-forms:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["playing-w-forms"]
+}
