@@ -82,6 +82,10 @@
         "buildTarget": "playing-w-forms:build",
         "staticFilePath": "dist/apps/playing-w-forms/browser"
       }
+    },
+    "deploy": {
+      "dependsOn": "build",
+      "command": "netlify deploy --dir=dist/playing-w-forms"
     }
   }
 }
